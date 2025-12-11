@@ -59,7 +59,7 @@ services:
     container_name: api-gateway
     environment:
       - SERVER_PORT=8084
-      - AUTH_BASE_URL=http://auth-service:8080
+      - AUTH_BASE_URL=http://auth-service:8083
       - USERS_BASE_URL=http://users-service:8081
       - DEVICES_BASE_URL=http://devices-service:8082
     networks:
@@ -168,7 +168,7 @@ services:
       - demo_net
 
   rabbitmq:
-    image: rabbitmq:4.2.1-management-alpine
+    image: rabbitmq:3.12-management-alpine
     container_name: rabbitmq
     ports:
       - "5672:5672"   # Portul pentru comunicare

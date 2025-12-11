@@ -82,7 +82,7 @@ public class UserService {
         // 3. SINCRONIZARE CU AUTH SERVICE
         // Trimitem un request HTTP către Auth pentru a crea contul de login
         try {
-            String authUrl = "http://auth-service:8080/auth/register";
+            String authUrl = "http://auth-service:8083/auth/register";
 
             // --- MODIFICARE AICI: Convertim Enum-ul în String ---
             // Verificăm dacă getRole() returnează null, altfel luăm .name()
@@ -118,7 +118,7 @@ public class UserService {
             // 3. Sincronizare: Ștergem și din Auth DB
             try {
                 // Apelăm endpoint-ul creat la Etapa 1
-                String authUrl = "http://auth-service:8080/auth/delete/" + email;
+                String authUrl = "http://auth-service:8083/auth/delete/" + email;
                 restTemplate.delete(authUrl);
                 LOGGER.info("Synced delete to Auth Service for email: {}", email);
             } catch (Exception e) {
